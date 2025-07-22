@@ -4,7 +4,7 @@ This archive is distributed in association with the INFORMS Journal on Computing
 
 The software and data in this repository are a snapshot of the software and data that were used in the research reported on in the paper:
 
-
+"Eliminating Social Popularity Bias in Recommendation: Causal Inference-Based Social Graph Neural Networks"
 
 ---
 
@@ -36,14 +36,17 @@ The pipeline includes data loading, model training, validation, early stopping, 
 
 ## Data and Instructions to Run CISGNN
 
-We use four real-world datasets: Ciao, Epinions, Philadelphia, and Tucson. Each dataset contains user-item ratings and social trust relationships. The datasets are located in the `data/raw/` directory:
+We use four real-world datasets: Ciao, 
+Epinions, Yelp(Philadelphia), and Yelp(Tucson). Each dataset contains user-item ratings and social trust relationships. The datasets are located in the `data/raw/` directory:
 
 - `data/raw/Ciao/`
 - `data/raw/Epinions/`
 - `data/raw/Philadelphia/`
 - `data/raw/Tucson/`
 
-Each folder contains rating and trust files. The code will automatically process and use these datasets.
+Each folder contains rating and trust files. `src/dataloader.py` will automatically process and use these datasets. The processed data sets are stored in the `data/processed/` directory.
+You can also obtain the original dataset by clicking on the following hyperlink:[Ciao](https://www.cse.msu.edu/~tangjili/trust.html), [Epinions](https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.html), [Yelp](https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset). Becides, `data/proc_yelp.py` provides code on how to handle Yelp's dataset.
+
 
 ### Running the Code
 
@@ -84,14 +87,10 @@ pip install torch pandas
 - `results/` : Output results
 - `saved_models/` : Saved model checkpoints
 
----
-
-## License
-
-This repository is distributed under the MIT License.
+ 
 
 ---
 
 ## Contact
 
-For questions or issues, please contact the authors as listed in the paper.
+For questions or issues, please contact the authors as listed in the paper.  
