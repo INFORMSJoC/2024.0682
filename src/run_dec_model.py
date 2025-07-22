@@ -48,7 +48,6 @@ for repeat_num in range(world.REPEAT):
     bpr = sampler.BPRLoss(Recmodel, config)
     best_perf = {'hr@50': 0, 'ndcg@50': 0, 'best_epoch': 0}
     print(f"********** Run {repeat_num + 1} starts. **********")
-    print(f'configuration is {world}')
     for epoch in range(1, world.TRAIN_epochs + 1):
         start = time.time()
         loss = Procedure.BPR_train_original(dataset, Recmodel, bpr, epoch)
