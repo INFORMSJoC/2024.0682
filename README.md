@@ -100,7 +100,7 @@ pip install torch pandas
 ## Contact
 
 For questions or issues, please contact:
-Huilin Xu: xuhuilin@stu.xjtu.edu.cn
-Ruina Yang: rnyang@mail.xjtu.edu.cn
-Ruibin Geng: rbgeng@nwpu.edu.cn
+- Huilin Xu: xuhuilin@stu.xjtu.edu.cn
+- Ruina Yang: rnyang@mail.xjtu.edu.cn
+- Ruibin Geng: rbgeng@nwpu.edu.cn
 
