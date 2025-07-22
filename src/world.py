@@ -46,14 +46,14 @@ config['emb_l2rg'] = 0.0001
 GPU = torch.cuda.is_available()
 device = torch.device('cuda' if GPU else "cpu")
 # device = torch.device("cpu")
-seed = 2023
+seed = 23
 LOAD = False
 PATH = './saved_models'
 
 config['device'] = device
 
 TRAIN_epochs = 200
-PATIENCE = 20
+PATIENCE = 10
 REPEAT = 10
 ng_num = 4
 topks = [10, 20, 30, 50, 100]
