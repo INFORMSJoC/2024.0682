@@ -1,22 +1,31 @@
 # Eliminating Social Popularity Bias in Recommendation: Causal Inference-Based Social Graph Neural Networks
 
-This archive is distributed in association with the INFORMS Journal on Computing under the MIT License.
+This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under the MIT License.
 
 The software and data in this repository are a snapshot of the software and data that were used in the research reported on in the paper:
 
-"Eliminating Social Popularity Bias in Recommendation: Causal Inference-Based Social Graph Neural Networks"
+["Eliminating Social Popularity Bias in Recommendation: Causal Inference-Based Social Graph Neural Networks"](https://doi.org/10.1287/ijoc.2024.0682)
 
 ---
 
 ## Cite
 To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
 
--
+-[https://doi.org/10.1287/ijoc.2024.0682](https://doi.org/10.1287/ijoc.2024.0682)
+
+-[https://doi.org/10.1287/ijoc.2024.0682.cd](https://doi.org/10.1287/ijoc.2024.0682.cd)
 
 Below is the BibTex for citing this snapshot of the repository:
 
 ```bibtex
-
+@article{CISGNN,
+  author =        {H.L. Xu, R.N. Yang, and R.B. Geng},
+  publisher =     {INFORMS Journal on Computing},
+  title =         {Eliminating Social Popularity Bias in Recommendation: Causal Inference-Based Social Graph Neural Networks},
+  year =          {2024},
+  doi =           {10.1287/ijoc.2024.0682,cd},
+  note =          {Available for download at https://github.com/INFORMSJoC/2024.0682},
+}  
 ```
 
 ---
@@ -41,12 +50,9 @@ Epinions, Yelp(Philadelphia), and Yelp(Tucson). Each dataset contains user-item 
 
 - `data/raw/Ciao/`
 - `data/raw/Epinions/`
-- `data/raw/Philadelphia/`
-- `data/raw/Tucson/`
 
 Each folder contains rating and trust files. `src/dataloader.py` will automatically process and use these datasets. The processed data sets are stored in the `data/processed/` directory.
-You can also obtain the original dataset by clicking on the following hyperlink:[Ciao](https://www.cse.msu.edu/~tangjili/trust.html), [Epinions](https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.html), [Yelp](https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset). Becides, `data/proc_yelp.py` provides code on how to handle Yelp's dataset.
-
+You can also obtain the original dataset by clicking on the following hyperlink:[Ciao](https://www.cse.msu.edu/~tangjili/trust.html), [Epinions](https://www.cse.msu.edu/~tangjili/datasetcode/truststudy.html), [Yelp](https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset). Becides, since the Yelp data set is too large, you can download the corresponding data through the link and use the `data/proc_yelp.py` to extract the data of the corresponding city.
 
 ### Running the Code
 
@@ -93,4 +99,8 @@ pip install torch pandas
 
 ## Contact
 
-For questions or issues, please contact the authors as listed in the paper.  
+For questions or issues, please contact:
+Huilin Xu: xuhuilin@stu.xjtu.edu.cn
+Ruina Yang: rnyang@mail.xjtu.edu.cn
+Ruibin Geng: rbgeng@nwpu.edu.cn
+
