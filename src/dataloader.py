@@ -733,7 +733,7 @@ def splitDataset(df, testMethod='tfo', testSize=.2):
     if testMethod == 'ufo':
         driver_ids = df['user']
         _, driver_indices = np.unique(np.array(driver_ids), return_inverse=True)
-        gss = GroupShuffleSplit(n_splits=1, test_size=testSize, random_state=2020)
+        gss = GroupShuffleSplit(n_splits=1, test_size=testSize, random_state=42)
         for train_idx, test_idx in gss.split(df, groups=driver_indices):
             train_set, test_set = df.loc[train_idx, :].copy(), df.loc[test_idx, :].copy()
 
@@ -758,7 +758,7 @@ def splitDataset(df, testMethod='tfo', testSize=.2):
         train_set, test_set = df.iloc[:split_idx, :].copy(), df.iloc[split_idx:, :].copy()
 
     elif testMethod == 'fo':
-        train_set, test_set = train_test_split(df, test_size=testSize, random_state=2020)
+        train_set, test_set = train_test_split(df, test_size=testSize, random_state=42)
 
     elif testMethod == 'tloo':
         # df = df.sample(frac=1)
