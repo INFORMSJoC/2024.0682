@@ -55,7 +55,7 @@ class PairDataset:
         train_data_satisfactory = self.train_set.loc[self.train_set['rating'] > 4].reset_index(drop=True)
         satis_num = len(test_data_satisfactory) + len(train_data_satisfactory)
 
-        self.train_set, self.val_set = splitDataset(self.train_set, 'fo', testSize=0.1)
+        self.train_set, self.val_set = splitDataset(self.train_set, 'tfo', testSize=0.1)
         # self.val_set, self.test_set = split_val_test(self.test_set, test_size=0.7)
         self.trainUser = np.array(self.train_set['user'])
         self.trainUniqueUser = np.unique(self.train_set['user'])
@@ -287,9 +287,6 @@ class SocialGraphDataset(GraphDataset):
         print(f"{world.dataset} Link Density: {(1-len(self.friendNet) / self.n_user / self.n_user)*100}")
         self._allFriends = self.getUserFriends(list(range(self.n_user)))
 
-        # self.user_bin_distribution, self.user_counts, self.bin_user_dict = load_user_popularity_paras(self.friendNet,
-        #                                                                                               world.config['degree_num'],
-        #                                                                                               self.n_user)
 
     def getSocialGraph(self):
         if self.socialGraph is None:
@@ -674,7 +671,6 @@ def split_dataset_by_time(data):
     return train_data, test_data
 
 def compute_K_item_popularity(data, item_num):
-    # 计算流行度, K个时间段
     min_time = data['timestamp'].min()
     max_time = data['timestamp'].max()
     K = 10
@@ -786,22 +782,6 @@ def splitDataset(df, testMethod='tfo', testSize=.2):
     return train_set, test_set
 
 
-def split_val_test(test, test_size=0.7, seed=2022):
-    test_unique_user = test['user'].unique()
-    N_ = test_unique_user.shape[0]
-    np.random.seed(seed)   # numpy的随机性
-    np.random.shuffle(test_unique_user)
-    split_idx = int(N_ * test_size)
-    test_real_user = test_unique_user[:split_idx]
-    valid_real_user = test_unique_user[split_idx:]
-    print("tot user in the last stage:", N_, "real test user:", test_real_user.shape[0], "real valid user:",
-          valid_real_user.shape[0])
-    data_real_test = test[test['user'].isin(test_real_user)].reset_index()
-    data_real_valid = test[test['user'].isin(valid_real_user)].reset_index()
-    print("tot itr:", test.shape, "real test:", data_real_test.shape, "real valid:", data_real_valid.shape)
-
-    return data_real_valid, data_real_test
-
 def get_longtail_items(df, num_items):
     item_counts = Counter(df['item'].values)
     for i in range(num_items):
@@ -815,7 +795,6 @@ def get_longtail_items(df, num_items):
     return longtail_items
 
 
-# 定义计算Gini系数的函数
 def gini_coefficient(x):
     x = np.array(x)
     array = np.sort(x)
