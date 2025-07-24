@@ -42,7 +42,6 @@ class PairDataset:
                                                                             filter_social=2, delete_ratio=world.delete_ratio)
             self.train_set, self.test_set = split_dataset_by_time(interactionNet)
             self.item_popularity = compute_popularity(self.train_set, tau_p=1 * pow(10, 7))
-            # self.train_set, self.test_set = splitDataset(self.interactionNet, world.testMethod, testSize=0.1)
             self.train_set.to_csv(os.path.join(world.DATA_PATH, 'preprocessed', self.dataset_name, 'train_set.txt'), index=False)
             self.test_set.to_csv(os.path.join(world.DATA_PATH, 'preprocessed', self.dataset_name, 'test_set.txt'), index=False)
             self.item_popularity.to_csv(os.path.join(world.DATA_PATH, 'preprocessed', self.dataset_name, 'item_popularity.txt'), index=False)
@@ -55,7 +54,7 @@ class PairDataset:
         train_data_satisfactory = self.train_set.loc[self.train_set['rating'] > 4].reset_index(drop=True)
         satis_num = len(test_data_satisfactory) + len(train_data_satisfactory)
 
-        self.train_set, self.val_set = splitDataset(self.train_set, 'tfo', testSize=0.1)
+        self.train_set, self.val_set = splitDataset(self.train_set, 'fo', testSize=0.1)
         # self.val_set, self.test_set = split_val_test(self.test_set, test_size=0.7)
         self.trainUser = np.array(self.train_set['user'])
         self.trainUniqueUser = np.unique(self.train_set['user'])
