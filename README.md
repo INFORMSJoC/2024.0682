@@ -22,8 +22,8 @@ Below is the BibTex for citing this snapshot of the repository:
   author =        {H.L. Xu, R.N. Yang, and R.B. Geng},
   publisher =     {INFORMS Journal on Computing},
   title =         {Eliminating Social Popularity Bias in Recommendation: Causal Inference-Based Social Graph Neural Networks},
-  year =          {2024},
-  doi =           {10.1287/ijoc.2024.0682,cd},
+  year =          {2025},
+  doi =           {10.1287/ijoc.2024.0682.cd},
   note =          {Available for download at https://github.com/INFORMSJoC/2024.0682},
 }  
 ```
